@@ -1,0 +1,152 @@
+/* Dark Theme */
+body {
+    font-family: Arial, sans-serif;
+    background: #000; /* Black Background */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#nameModal {
+    display: flex;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background: #1c1c1e; /* Dark Grey */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    text-align: center;
+    border-radius: 10px;
+
+}
+
+#nameModal input {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background: #2c2c2e;
+    border: none;
+    color: white;
+    border-radius: 20px;
+}
+
+#nameModal button {
+    width: 100%;
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+/* Chat Container */
+.chat-container {
+    width: 90%;
+    max-width: 400px;
+    background: #1c1c1e; /* Dark Chat Background */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-box {
+    height: 400px;
+    overflow-y: auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-box-container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+}
+
+/* Message Input */
+#message {
+    width: 90%;
+    padding: 12px;
+    border: none;
+    background: #2c2c2e;
+    color: white;
+    border-radius: 25px;
+    margin: 10px;
+    outline: none;
+}
+
+#sendBtn {
+    height: 100%;
+    padding: 12px 15px;
+    background: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 25px;
+    margin-right: 10px;
+}
+
+/* Message Styles */
+.message {
+    padding: 8px 12px;
+    border-radius: 18px;
+    margin: 5px 0;
+    max-width: 70%;
+    word-wrap: break-word;
+}
+
+/* Sent Message (Right Aligned) */
+.sent {
+    align-self: flex-end;
+    background: #007bff; /* Instagram Blue */
+    color: white;
+    text-align: right;
+}
+
+/* Received Message (Left Aligned) */
+.received {
+    align-self: flex-start;
+    background: #262626; /* Dark Gray */
+    color: white;
+    text-align: left;
+}
+
+
+/* Username */
+.username {
+    font-size: 12px;
+    color: #b0b3b8;
+    display: block;
+    margin-bottom: 3px;
+}
+
+/* Notification (User Joined) */
+.notification {
+    text-align: center;
+    font-size: 12px;
+    color: #b0b3b8;
+    margin: 10px 0;
+}
+
+#leaveChat{
+    padding: 12px 50px;
+    border: none;
+    background-color: red;
+    color: white;
+    font-size: 1rem;
+}
+
+.inputs-container{
+    display: flex;
+    flex-direction: column;
+
+}
