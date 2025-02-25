@@ -4,9 +4,19 @@ const socketIo = require("socket.io");
 
 const app = express();
 const server = http.createServer(app);
-const io = socketIo(server);
+// const io = socketIo(server);
+const io = socketIo(server, {
+    cors: {
+        origin: "*",  // Allow all origins or specify your Vercel app domain
+        methods: ["GET", "POST"]
+    }
+});
+
 const PORT = process.env.PORT || 6000
 const path = require('path')
+const cors = require("cors");
+app.use(cors());
+
 
 app.use(express.static(path.join(__dirname, "public")));
 
