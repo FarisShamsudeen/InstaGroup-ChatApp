@@ -15,7 +15,8 @@ const server = app.listen(0, () => {
 
 const io = socketIo(server, {
   cors: {
-    origin: "https://instagroup.vercel.app", // Allow all origins or specify your Vercel app domain
+    origin: "*", // Allow all origins or specify your Vercel app domain
+    // origin: "https://instagroup.vercel.app", 
     methods: ["GET", "POST"],
     credentials: true
   },
@@ -24,7 +25,8 @@ const io = socketIo(server, {
 const path = require("path");
 
 app.use(cors({
-    origin: 'https://instagroup.vercel.app', 
+    // origin: 'https://instagroup.vercel.app', 
+    origin: '*', 
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true
 }));
@@ -36,11 +38,11 @@ app.get("/", (req, res) => {
 });
 
 io.on("connection", (socket) => {
-  console.log("New user connected");
-
-  socket.on("joinChat", (username) => {
-    socket.username = username;
-    io.emit("userJoined", `${username}`);
+    console.log('Connection Started');
+    socket.on("joinChat", (username) => {
+        socket.username = username;
+        io.emit("userJoined", `${username}`);
+        console.log("New user connected");
   });
 
   socket.on("chatMessage", ({ username, message }) => {
@@ -50,6 +52,7 @@ io.on("connection", (socket) => {
   socket.on("disconnect", () => {
     if (socket.username) {
       io.emit("userJoined", `${socket.username} left the chat`);
+      console.log(`${socket.username} left the chat`);
     }
   });
 });
