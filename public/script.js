@@ -1,4 +1,11 @@
-const socket = io();
+// const socket = io();
+import { io } from 'socket.io-client';
+
+const socket = io('https://instagroup.vercel.app', {
+    transports: ['websocket', 'polling'],
+    withCredentials: true
+});
+
 const chatBox = document.getElementById("chat-box");
 const messageInput = document.getElementById("message");
 const sendBtn = document.getElementById("sendBtn");

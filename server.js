@@ -15,14 +15,20 @@ const server = app.listen(0, () => {
 
 const io = socketIo(server, {
   cors: {
-    origin: "*", // Allow all origins or specify your Vercel app domain
+    origin: "https://instagroup.vercel.app", // Allow all origins or specify your Vercel app domain
     methods: ["GET", "POST"],
+    credentials: true
   },
 });
 
 const path = require("path");
 
-app.use(cors());
+app.use(cors({
+    origin: 'https://instagroup.vercel.app', 
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true
+}));
+
 app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", (req, res) => {
