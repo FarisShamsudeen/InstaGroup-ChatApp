@@ -6,8 +6,9 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIo(server);
 const PORT = process.env.PORT || 6000
+const path = require('path')
 
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "public")));
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
